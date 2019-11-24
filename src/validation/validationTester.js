@@ -1,5 +1,3 @@
-import brand from './brand'
-
 export default class {
 
   constructor(validators){
