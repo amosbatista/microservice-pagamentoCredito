@@ -10,7 +10,8 @@
     "prestart": "npm run -s build",
     "test": "jest",
     "test-coverage": "jest --coverage --passWithNoTests",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch --testPathPattern=unit",
+    "integration-test": "jest --watch --testPathPattern=implementation"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
