@@ -1,8 +1,13 @@
+import brand from './brand'
+
 export default class {
-  constructor(){
-    
+
+  constructor(validators){
+    this.validators = validators
   }
   isCardValid (card) {
-    return true
+    return this.validators.every(
+      (validator)=>validator(card)
+    )
   }
 }
