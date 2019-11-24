@@ -1,57 +1,39 @@
-Express & ES6 REST API Boilerplate
-==================================
+Projeto para palestra sobre TDD - Rocket Seat
 
-This is a straightforward boilerplate for building REST APIs with ES6 and Express.
+Autor: Amós Batista - Zup
 
-- ES6 support via [babel](https://babeljs.io)
-- REST resources as middleware via [resource-router-middleware](https://github.com/developit/resource-router-middleware)
-- CORS support via [cors](https://github.com/troygoode/node-cors)
-- Body Parsing via [body-parser](https://github.com/expressjs/body-parser)
-
-> Tip: If you are using [Mongoose](https://github.com/Automattic/mongoose), you can automatically expose your Models as REST resources using [restful-mongoose](https://git.io/restful-mongoose).
-
-
-
-Getting Started
----------------
+A branch master é o projeto **original**, e a branch **unit-test-refactor** é o projeto refatorado.
 
 ```sh
-# clone it
-git clone git@github.com:developit/express-es6-rest-api.git
-cd express-es6-rest-api
-
-# Make it your own
-rm -rf .git && git init && npm init
-
-# Install dependencies
+# Instalação dependencias
 npm install
 
-# Start development live-reload server
+# Rodando testes
+## Simples
+npm run start
+
+## Watch (testes executados toda vez que salvar arquivo)
+npm run test-watch
+
+## Ver cobertura do código
+npm run test-coverage
+
+# Rodar em desenvolvimento
 PORT=8080 npm run dev
 
-# Start production server:
+# Rodar em produção:
 PORT=8080 npm start
 ```
-Docker Support
+Suporte Docker
 ------
 ```sh
 cd express-es6-rest-api
 
-# Build your docker
 docker build -t es6/api-service .
-#            ^      ^           ^
-#          tag  tag name      Dockerfile location
-
-# run your docker
 docker run -p 8080:8080 es6/api-service
-#                 ^            ^
-#          bind the port    container tag
-#          to your host
-#          machine port   
-
 ```
 
-License
+Licença
 -------
 
 MIT
