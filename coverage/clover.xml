@@ -1,29 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1574622519658" clover="3.2.0">
-  <project timestamp="1574622519659" name="All files">
-    <metrics statements="11" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="2" elements="20" coveredelements="4" complexity="0" loc="11" ncloc="11" packages="1" files="4" classes="4"/>
-    <file name="aboveZero.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/aboveZero.js">
-      <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <line num="3" count="0" type="stmt"/>
-      <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="6" count="0" type="stmt"/>
-      <line num="9" count="0" type="stmt"/>
-      <line num="13" count="0" type="stmt"/>
-    </file>
-    <file name="brand.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/brand.js">
-      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <line num="2" count="0" type="stmt"/>
-      <line num="6" count="0" type="stmt"/>
-    </file>
-    <file name="validationTester.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/validationTester.js">
-      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="7" count="0" type="stmt"/>
-      <line num="8" count="0" type="stmt"/>
-    </file>
-    <file name="validationTesterFactory.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/validationTesterFactory.js">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="7" count="1" type="stmt"/>
-    </file>
+<coverage generated="1574625765272" clover="3.2.0">
+  <project timestamp="1574625765273" name="All files">
+    <metrics statements="41" coveredstatements="23" conditionals="19" coveredconditionals="3" methods="11" coveredmethods="8" elements="71" coveredelements="34" complexity="0" loc="41" ncloc="41" packages="3" files="6" classes="6"/>
+    <package name="src">
+      <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="0"/>
+      <file name="index.js" path="/home/amos/dev/microservice-pagamentoCredito/src/index.js">
+        <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.api">
+      <metrics statements="21" coveredstatements="6" conditionals="15" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="index.js" path="/home/amos/dev/microservice-pagamentoCredito/src/api/index.js">
+        <metrics statements="21" coveredstatements="6" conditionals="15" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="68" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.validation">
+      <metrics statements="11" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
+      <file name="aboveZero.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/aboveZero.js">
+        <metrics statements="5" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+      <file name="brand.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/brand.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="validationTester.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/validationTester.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+      </file>
+      <file name="validationTesterFactory.js" path="/home/amos/dev/microservice-pagamentoCredito/src/validation/validationTesterFactory.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

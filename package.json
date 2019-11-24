@@ -8,7 +8,7 @@
     "build": "babel src -s -D -d dist --presets es2015,stage-0",
     "start": "node dist",
     "prestart": "npm run -s build",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test-coverage": "jest --coverage --passWithNoTests",
     "test-watch": "jest --watch --testPathPattern=unit",
     "integration-test": "jest --watch --testPathPattern=implementation"
