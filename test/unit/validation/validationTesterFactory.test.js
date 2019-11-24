@@ -1,5 +1,5 @@
-import ValidatorFactory from '../../src/validation/validationTesterFactory'
-import ValidationTester from '../../src/validation/validationTester'
+import ValidatorFactory from '../../../src/validation/validationTesterFactory'
+import ValidationTester from '../../../src/validation/validationTester'
 
 describe('card validation factory tester', () => {
 
