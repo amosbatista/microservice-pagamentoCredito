@@ -1,4 +1,4 @@
-import validator from '../../src/validation/aboveZero'
+import validator from '../../../src/validation/aboveZero'
 
 describe('above zero validation', () => {
 

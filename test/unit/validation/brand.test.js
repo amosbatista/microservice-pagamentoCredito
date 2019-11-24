@@ -1,4 +1,4 @@
-import validator from '../../src/validation/brand'
+import validator from '../../../src/validation/brand'
 
 describe('brand validation', () => {
 

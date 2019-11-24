@@ -1,5 +1,5 @@
 
-import ValidationTester from '../../src/validation/validationTester'
+import ValidationTester from '../../../src/validation/validationTester'
 
 describe('card validation tester', () => {
 
