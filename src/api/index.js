@@ -2,28 +2,32 @@ import { version } from '../../package.json'
 import { Router } from 'express'
 import httpReq from 'superagent'
 
-import dotenv from 'dotenv';
-
-dotenv.load();
-
 export default ({ config, db }) => {
 	const STATUS_INVALID_REQUEST = 400
 	const STATUS_REQUEST_ACCEPT = 202
-	const STATUS_SERVER_ERROR = 500
+  const STATUS_SERVER_ERROR = 500
 
 	let api = Router();
 
 	api.get('/', (req, res) => {
-		
-		const paymentData = {
-			"totalAmount": request.totalPurchase,
-			"deliveryTax": request.deliveryTax,
-			"cardNumber": req.body.paymentData.cardNumber,
-			"nameFromCard": req.body.paymentData.nameFromCard,
-			"validate": req.body.paymentData.validate, 
-			"cvv": req.body.paymentData.cvv,
-			"brand": req.body.paymentData.brand
-		}
+
+    if(req.body.totalCompra <= 0){
+      res.status(STATUS_INVALID_REQUEST).send({
+        message: "Valor da compra não pode ser menor ou igual a zero.",
+        data: err
+      })
+    }
+
+    if(req.body.bandeira != "visa" || req.body.bandeira != "mastercard"){
+      res.status(STATUS_INVALID_REQUEST).send({
+        message: "Bandeira do cartão inválida.",
+        data: err
+      })
+    }
+
+    const valorTotalAposCalculoParcela = req.body.parcelas <= 3 ?
+      req.body.totalCompra :
+      req.body.totalCompra + (req.body.totalCompra * 0.05)
 
 		httpReq.post(process.env.CIELO_API_REQUEST + "/1/sales")
     .send(JSON.stringify({
@@ -33,14 +37,14 @@ export default ({ config, db }) => {
       },
       "Payment":{
         "Type":"CreditCard",
-        "Amount": paymentData.totalAmount,
-        "Installments": creditCardInstallments,
+        "Amount": valorTotalAposCalculoParcela,
+        "Installments": req.body.parcelas,
         "CreditCard":{
-          "CardNumber":paymentData.cardNumber,
-          "Holder": paymentData.nameFromCard,
-          "ExpirationDate": paymentData.validate,
-          "SecurityCode":paymentData.cvv,
-          "Brand": paymentData.brand
+          "CardNumber":req.body.numeroCartao,
+          "Holder": req.body.nome,
+          "ExpirationDate": req.body.dataExpiracao,
+          "SecurityCode":req.body.cvv,
+          "Brand": req.body.bandeira
         }
       }
     }))
