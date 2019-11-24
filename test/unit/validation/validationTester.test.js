@@ -6,31 +6,53 @@ describe('card validation tester', () => {
   it('should instantiate, receive card and return true if validation are true', ()=>{
      
     const validatorsWhoReturnTrue = [
-      jest.fn( (card) => true ),
-      jest.fn( (card) => true )
+      (card) => {
+        return {
+          isValid: true
+        }
+      },
+      (card) => {
+        return {
+          isValid: true
+        }
+      }
     ]
     
     const validationTester = new ValidationTester(validatorsWhoReturnTrue)
     const card = {}
 
-    expect(validationTester.isCardValid(card)).toBe(true)
+    expect(validationTester.isCardValid(card)).toEqual({
+      isValid: true
+    })
   })
 
   it('should instantiate, receive card and return false if any validation are false', ()=>{
      
     const validatorsWithAFalseResult = [
-      jest.fn( (card) => true ),
-      jest.fn( (card) => false ),
-      jest.fn( (card) => true )
-      // Pode ser diretamente desta maneira, mas usamos a implementação do Jest
-      // (card)=>true,
-      // (card)=>true,
-      // (card)=>false
+      (card) => {
+        return {
+          isValid: true
+        }
+      },
+      (card) => {
+        return {
+          isValid: true
+        }
+      },
+      (card) => {
+        return {
+          isValid: false,
+          reason: "foo"
+        }
+      }
     ]
     
     const validationTester = new ValidationTester(validatorsWithAFalseResult)
     const card = {}
 
-    expect(validationTester.isCardValid(card)).toBe(false)
+    expect(validationTester.isCardValid(card)).toEqual({
+      isValid: false,
+      reason: "foo"
+    })
   })
 })

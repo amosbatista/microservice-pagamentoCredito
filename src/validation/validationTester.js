@@ -4,8 +4,17 @@ export default class {
     this.validators = validators
   }
   isCardValid (card) {
-    return this.validators.every(
-      (validator)=>validator(card)
-    )
+    
+    return  this.validators.reduce((result, validator)=>{
+      const validatorResult = validator(card)
+
+      if(!validatorResult.isValid){
+        result = validatorResult
+      }
+
+      return result
+    },{
+      isValid: true
+    })
   }
 }

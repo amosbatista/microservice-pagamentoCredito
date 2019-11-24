@@ -7,7 +7,9 @@ describe('brand validation', () => {
       bandeira: "visa"
     }
 
-    expect(validator(card)).toBe(true)
+    expect(validator(card)).toEqual({
+      isValid: true
+    })
   })
 
   it('it must return false when card brand aren\'t in it list', ()=>{
@@ -15,6 +17,9 @@ describe('brand validation', () => {
       bandeira: "foo"
     }
 
-    expect(validator(card)).toBe(false)
+    expect(validator(card)).toEqual({
+      isValid: false,
+      reason: "Bandeira do cartão inválida."
+    })
   })
 })
