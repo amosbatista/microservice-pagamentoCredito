@@ -1,8 +1,7 @@
-import { version } from '../../package.json'
 import { Router } from 'express'
 import httpReq from 'superagent'
 
-export default ({ config, db }) => {
+export default () => {
 	const STATUS_INVALID_REQUEST = 400
 	const STATUS_REQUEST_ACCEPT = 202
   const STATUS_SERVER_ERROR = 500
