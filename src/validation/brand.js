@@ -3,5 +3,13 @@ export default (card) => {
     "visa",
     "mastercard"
   ]
-  return validBrands.some((brand)=>card.bandeira == brand)
+  const result = validBrands.some((brand)=>card.bandeira == brand)
+
+  return result ? {
+    isValid: true
+  } :
+  {
+    isValid: false,
+    reason: "Bandeira do cartão inválida."
+  }
 }

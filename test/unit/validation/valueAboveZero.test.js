@@ -7,19 +7,27 @@ describe('above zero validation', () => {
       totalCompra: 1.00
     }
 
-    expect(validator(card)).toBe(true)
+    expect(validator(card)).toEqual({
+      isValid: true
+    })
   })
 
-  it('it must false true when payment value is not a number', ()=>{
+  it('it must return false when payment value is not a number', ()=>{
     const cardWithoutValue = {}
 
-    expect(validator(cardWithoutValue)).toBe(false)
+    expect(validator(cardWithoutValue)).toEqual({
+      isValid: false,
+      reason: "Pagamento sem valor"
+    })
 
     const cardWithoutValidValue = {
       totalCompra: "foo"
     }
 
-    expect(validator(cardWithoutValidValue)).toBe(false)
+    expect(validator(cardWithoutValidValue)).toEqual({
+      isValid: false,
+      reason: "Valor de pagamento inválido"
+    })
   })
 
   it('it must return false when payment value is below or equal zero', ()=>{
@@ -27,12 +35,18 @@ describe('above zero validation', () => {
       totalCompra: 0
     }
 
-    expect(validator(cardWithZeroValue)).toBe(false)
+    expect(validator(cardWithZeroValue)).toEqual({
+      isValid: false,
+      reason: "Valor de pagamento menor ou igual a zero"
+    })
 
     const cardWithBelowZeroValue = {
       totalCompra: -1.23
     }
 
-    expect(validator(cardWithBelowZeroValue)).toBe(false)
+    expect(validator(cardWithBelowZeroValue)).toEqual({
+      isValid: false,
+      reason: "Valor de pagamento menor ou igual a zero"
+    })
   })
 })
