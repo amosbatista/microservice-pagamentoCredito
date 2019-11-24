@@ -1,6 +1,6 @@
 import validator from '../../src/validation/brand'
 
-describe('brancd validation', () => {
+describe('brand validation', () => {
 
   it('it must return true when card brand are in its list', ()=>{
     const card = {
