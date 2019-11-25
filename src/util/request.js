@@ -11,9 +11,15 @@ export default {
         data: request.body,
         headers: request.headers
       }).then((result)=>{
-        resolve(result.data)
+        resolve({
+          status: result.data.status,
+          body: result.data.body
+        })
       }).catch((err)=>{
-        reject(err)
+        reject({
+          status: err.data.status,
+          body: err.data.body
+        })
       })
       
     })
