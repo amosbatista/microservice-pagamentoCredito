@@ -14,7 +14,7 @@ describe('http request', ()=>{
     }
     const result = {
       data: {
-        status: 0,
+        status: 200,
         body: {
           test: "test"
         }
@@ -25,9 +25,35 @@ describe('http request', ()=>{
     const reqResult = await service.post(data)
 
     expect(reqResult).toEqual({
-      status: 0,
+      status: 200,
       body: {
         test: "test"
+      }
+    })
+  })
+
+  it('should receive an error data when request emit an error', async ()=>{
+    const data = {
+      url: '/ping',
+      body: {
+        foo: "bar"
+      },
+      header: {foo: "bar"}
+    }
+    const err = {
+      data: {
+        status: 500,
+        body: {
+          test: "err"
+        }
+      }
+    }
+    library.mockResolvedValue(Promise.reject(err))
+    
+    await expect(service.post(data)).rejects.toEqual({
+      status: 500,
+      body: {
+        test: "err"
       }
     })
   })
