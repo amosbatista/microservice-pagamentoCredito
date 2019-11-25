@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import httpReq from 'superagent'
+import validatorFactory from '../validation/validationTesterFactory'
 
 export default () => {
 	const STATUS_INVALID_REQUEST = 400
@@ -10,18 +11,15 @@ export default () => {
 
 	api.get('/', (req, res) => {
 
-    if(req.body.totalCompra <= 0){
-      res.status(STATUS_INVALID_REQUEST).send({
-        message: "Valor da compra não pode ser menor ou igual a zero.",
-        data: err
-      })
-    }
+    const validator = validatorFactory()
+    const validationResult = validator(req.body)
 
-    if(req.body.bandeira != "visa" || req.body.bandeira != "mastercard"){
+    if(!validationResult.isValid){
       res.status(STATUS_INVALID_REQUEST).send({
-        message: "Bandeira do cartão inválida.",
-        data: err
+        message: validationResult.reason
       })
+
+      return;
     }
 
     const valorTotalAposCalculoParcela = req.body.parcelas <= 3 ?
