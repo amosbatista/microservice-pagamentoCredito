@@ -13,11 +13,9 @@ describe('http request', ()=>{
       header: {foo: "bar"}
     }
     const result = {
+      status: 200,
       data: {
-        status: 200,
-        body: {
-          test: "test"
-        }
+        test: "test"
       }
     }
     library.mockResolvedValue(result)
@@ -41,20 +39,16 @@ describe('http request', ()=>{
       header: {foo: "bar"}
     }
     const err = {
-      data: {
+      response: {
         status: 500,
-        body: {
-          test: "err"
-        }
+        statusText: "err"
       }
     }
     library.mockResolvedValue(Promise.reject(err))
     
     await expect(service.post(data)).rejects.toEqual({
       status: 500,
-      body: {
-        test: "err"
-      }
+      body: "err"
     })
   })
 })
