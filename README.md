@@ -1,10 +1,20 @@
-**Rocketseat XP 2019 - Projeto de Refatoração usando TDD
-*Microserviço de pagamento
+# Rocketseat XP 2019 - Projeto de Refatoração usando TDD
 
+## Sobre
 Este projeto foi criado para a palestra **TDD na Prática**, que eu ministrei no RS/XP 2019.
 
 Para quem acompanhou o curso, e para eu mesmo praticar a criação de testes, eu vou dar prosseguimento ao projeto, refatorando o sistema o máximo que for possível.
 
-O projeto foi criado a partir de boilerplate de ES6. A documentação original do projeto [está neste link](./es6-boilerplate.md).
+O projeto foi criado a partir de boilerplate de ES6. A documentação original do projeto, ensinando como rodar o serviço [está neste link](./es6-boilerplate.md).
 
-Licença: MIT.
+## Proposta 
+A ideia é refatorar este serviço pelos princípios de TDD, ou seja, testando o sistema durante a refatoração. 
+A motivação do projeto é mostrar como é possível usar testes de uma maneira prática.
+
+## Organização do código
+O projeto está separado em 2 branchs.
+**master**: a branch inicial, o código pronto para ser refatorado.
+**[unit-test-refactor](https://github.com/amosbatista/microservice-pagamentoCredito/pull/2)**: onde o código está sendo refatorado.
+
+## Licença
+MIT.
