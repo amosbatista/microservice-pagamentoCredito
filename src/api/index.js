@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import httpReq from '../util/request'
 import validatorFactory from '../validation/validationTesterFactory'
+import purchaseCalculator from '../purchase/parcelsCalculator'
 
 export default () => {
 	const STATUS_INVALID_REQUEST = 400
@@ -21,10 +22,11 @@ export default () => {
 
       return;
     }
-
-    const valorTotalAposCalculoParcela = req.body.parcelas <= 3 ?
-      req.body.totalCompra :
-      req.body.totalCompra + (req.body.totalCompra * 0.05)
+    const purchase = {
+      value: req.body.totalCompra,
+      parcels: req.body.parcelas
+    }
+    const valorTotalAposCalculoParcela = purchaseCalculator(purchase)
 
 		const apiRes = await httpReq.post({
       url: process.env.CIELO_API_REQUEST + "/1/sales",
